@@ -6,11 +6,6 @@ pipeline{
                   sh 'mvn clean package'
                    }
 }
-stage('unit test'){
-steps{
-junit '**/target/*.xml'
-}
-}
 stage('sonar test'){
 steps{
 sh 'mvn clean verify sonar:sonar -Dsonar.projectName=PRADHAN -Dsonar.projectKey=PRADHAN -Dsonar.projectVersion=$BUILD_NUMBER'
