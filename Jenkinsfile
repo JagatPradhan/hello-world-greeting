@@ -6,11 +6,9 @@ pipeline{
                   sh 'mvn clean package'
                    }
 }
-stage(' build and unit test'){
+stage('unit test'){
 steps{
-sh 'mvn clean verify -DskipITs=true';
-junit '**/target/surefire-reports-TEST-*.xml'
-archive 'target/*.jar'
+junit '**/target/*.xml'
 }
 }
 stage('sonar test'){
